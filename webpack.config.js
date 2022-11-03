@@ -22,11 +22,6 @@ const config = {
   module: {
     rules: [
       {
-        use: 'react-hot-loader/webpack',
-        test: dir_js,
-        exclude: dir_node_modules,
-      },
-      {
         use: 'babel-loader',
         test: dir_js,
         exclude: dir_node_modules,
@@ -54,9 +49,6 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.mode = 'production';
     config.output.path = dir_dist;
-    config.module.rules = config.module.rules.filter(
-      (rule) => rule.use !== 'react-hot-loader/webpack'
-    );
   }
   return config;
 };
